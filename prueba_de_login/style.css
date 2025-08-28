@@ -1,0 +1,18 @@
+body {
+    font-family: 'Press Start 2P', cursive;
+    background: url('fondo-minecraft.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+  
+.card {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 2px solid #3e8e41;
+    box-shadow: 0 0 10px #3e8e41;
+}
+  
+h2 {
+    color: #3e8e41;
+    font-family: 'Press Start 2P', cursive;
+}
+  
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');

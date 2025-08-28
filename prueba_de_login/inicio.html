@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio - Tool´s Minecraft</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body class="bg-dark text-white">
+    <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-success px-3">
+    <a class="navbar-brand fw-bold" href="#">🌍 MinecraftWeb</a>
+    <div class="ms-auto">
+      <button class="btn btn-outline-light" id="cerrarSesionBtn">Cerrar sesión</button>
+    </div>
+  </nav>
+
+  <!-- CONTENIDO -->
+  <div class="container text-center py-5">
+    <h1 class="mb-4">¡Bienvenido, <span id="nombreUsuario">Steve</span>! ⛏️</h1>
+    <p>Explora el mundo de Minecraft desde nuestra página personalizada 🟩🧱</p>
+
+    <!-- Puedes poner secciones aquí -->
+    <div class="row mt-5">
+      <div class="col-md-4">
+        <div class="card p-3">
+          <h5>Tienda</h5>
+          <p>Compra bloques, skins y más.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card p-3">
+          <h5>Galería</h5>
+          <p>Observa construcciones épicas.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card p-3">
+          <h5>Noticias</h5>
+          <p>Entérate de las últimas actualizaciones.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Mostrar el nombre del usuario
+    const usuario = JSON.parse(localStorage.getItem("usuarioRegistrado"));
+    if (usuario) {
+      document.getElementById("nombreUsuario").textContent = usuario.nombre;
+    } else {
+      // Si no hay sesión, redirigir
+      window.location.href = "login.html";
+    }
+
+    // Cerrar sesión
+    document.getElementById("cerrarSesionBtn").addEventListener("click", () => {
+      Swal.fire({
+        title: '¿Cerrar sesión?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Sí',
+        cancelButtonText: 'No',
+        background: '#202020',
+        color: '#fff'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          localStorage.removeItem("usuarioRegistrado");
+          window.location.href="login.html";
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
